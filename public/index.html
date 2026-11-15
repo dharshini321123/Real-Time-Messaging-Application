@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Login and Register -->
+    <div id="authPage" class="auth-container">
+
+        <h1>ChatConnect</h1>
+        <p>Connect privately. Chat instantly.</p>
+
+        <div class="auth-tabs">
+            <button id="loginTab" class="active">Login</button>
+            <button id="registerTab">Register</button>
+        </div>
+
+        <form id="authForm">
+            <input id="username" type="text" placeholder="Username" minlength="3" maxlength="20" required>
+
+            <input id="password" type="password" placeholder="Password" minlength="8" required>
+
+            <button type="submit" id="authButton">Login</button>
+        </form>
+
+        <p id="authStatus"></p>
+    </div>
+
+    <!-- Chat Dashboard -->
+    <div id="dashboard" class="dashboard" hidden>
+
+        <aside class="sidebar">
+
+            <div class="profile">
+                <h2>ChatConnect</h2>
+                <span id="myUsername"></span>
+                <button id="logoutButton" class="logout">
+                    Logout
+                </button>
+            </div>
+
+            <h3>Contacts</h3>
+
+            <input id="searchUser" placeholder="Search users...">
+
+            <div id="contacts"></div>
+
+        </aside>
+
+        <main class="chat-area">
+
+            <div id="welcomeScreen">
+                <h2>Welcome to ChatConnect</h2>
+                <p>Select a contact to start a private conversation.</p>
+            </div>
+
+            <div id="conversation" hidden>
+
+                <div class="chat-header">
+                    <div>
+                        <h3 id="contactName"></h3>
+                        <small id="contactStatus"></small>
+                    </div>
+                </div>
+
+                <div id="messages"></div>
+
+                <form id="messageForm">
+                    <input id="messageInput" placeholder="Type your message..." maxlength="500" autocomplete="off"
+                        required>
+
+                    <button type="submit">Send</button>
+                </form>
+
+                <p id="messageStatus"></p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
